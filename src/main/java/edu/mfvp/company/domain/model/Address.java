@@ -2,19 +2,15 @@ package edu.mfvp.company.domain.model;
 
 import edu.mfvp.company.domain.enumerations.UF;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Entity;
+import lombok.*;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
+@Getter
 @Entity(name = "tb_address")
-public class Address {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Address extends edu.mfvp.company.domain.model.Entity {
 
     @Column(nullable = false, length = 2)
     @Enumerated(EnumType.STRING)
