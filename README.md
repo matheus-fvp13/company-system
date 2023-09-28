@@ -13,8 +13,11 @@ classDiagram
         -id: Integer
         -uf: UF
         -city: String
+        -borhood: String
         -street: String
         -number: String
+        -zipCode: String
+        -complemet: String
     }
     class UF {
         <<enumeration>>
