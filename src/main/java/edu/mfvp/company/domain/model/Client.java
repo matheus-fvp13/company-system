@@ -34,4 +34,8 @@ public class Client {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate birthDate;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id_fk", nullable = false)
+    private Address address;
+
 }
