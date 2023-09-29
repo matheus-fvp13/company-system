@@ -3,6 +3,7 @@ package edu.mfvp.company.service.impl;
 import edu.mfvp.company.domain.model.Client;
 import edu.mfvp.company.domain.repository.ClientRepository;
 import edu.mfvp.company.dtos.ClientDtoRecord;
+import edu.mfvp.company.dtos.ProjectDtoRecord;
 import edu.mfvp.company.service.ClientService;
 import org.springframework.stereotype.Service;
 
@@ -50,5 +51,12 @@ public class ClientServiceImp implements ClientService {
     public void delete(Long id) {
         if(!clientRepository.existsById(id)) throw new NoSuchElementException("There is no a client with ID " + id);
         clientRepository.deleteById(id);
+    }
+
+    @Override
+    public List<ProjectDtoRecord> projects(Long id) {
+        if(!clientRepository.existsById(id)) throw new NoSuchElementException("There is no a client with ID " + id);
+        Client client = clientRepository.findById(id).get();
+        return  client.getProjects().stream().map(ProjectDtoRecord::toDto).collect(Collectors.toList());
     }
 }

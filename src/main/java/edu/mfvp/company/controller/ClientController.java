@@ -1,6 +1,7 @@
 package edu.mfvp.company.controller;
 
 import edu.mfvp.company.dtos.ClientDtoRecord;
+import edu.mfvp.company.dtos.ProjectDtoRecord;
 import edu.mfvp.company.service.ClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,6 +43,11 @@ public class ClientController {
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         clientService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}/projects")
+    public ResponseEntity<List<ProjectDtoRecord>> findAllClientProjects(@PathVariable Long id) {
+        return ResponseEntity.ok().body(clientService.projects(id));
     }
 
 }

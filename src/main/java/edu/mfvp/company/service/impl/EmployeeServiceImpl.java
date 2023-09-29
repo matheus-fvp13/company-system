@@ -1,10 +1,12 @@
 package edu.mfvp.company.service.impl;
 
+import edu.mfvp.company.domain.model.Client;
 import edu.mfvp.company.domain.model.Employee;
 import edu.mfvp.company.domain.model.Role;
 import edu.mfvp.company.domain.repository.EmployeeRepository;
 import edu.mfvp.company.domain.repository.RoleRepository;
 import edu.mfvp.company.dtos.EmployeeDtoRecord;
+import edu.mfvp.company.dtos.ProjectDtoRecord;
 import edu.mfvp.company.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
@@ -62,4 +64,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         if(!employeeRepository.existsById(id)) throw new NoSuchElementException("There is no a client with ID " + id);
         employeeRepository.deleteById(id);
     }
+
+    @Override
+    public List<ProjectDtoRecord> projects(Long id) {
+        if(!employeeRepository.existsById(id)) throw new NoSuchElementException("There is no a client with ID " + id);
+        Employee employee = employeeRepository.findById(id).get();
+        return  employee.getProjects().stream().map(ProjectDtoRecord::toDto).collect(Collectors.toList());
+    }
+
 }
