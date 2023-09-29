@@ -25,4 +25,8 @@ public class Employee extends Person {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate terminationDate;
 
+    @ManyToOne
+    @JoinColumn(name = "role_id_fk", nullable = false)
+    private Role role;
+
 }

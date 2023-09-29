@@ -6,7 +6,7 @@ import edu.mfvp.company.domain.model.Employee;
 import java.time.LocalDate;
 
 public record EmployeeDtoRecord(String name, String cpf, String phone, String email, LocalDate birthDate,
-                                Address address, LocalDate hireDate, LocalDate terminationDate) {
+                                Address address, LocalDate hireDate, LocalDate terminationDate, String roleName) {
 
     public Employee toEntity() {
         Employee employee = new Employee();
@@ -23,7 +23,8 @@ public record EmployeeDtoRecord(String name, String cpf, String phone, String em
 
     public static EmployeeDtoRecord toEmployeeDto(Employee employee) {
         return new EmployeeDtoRecord(employee.getName(), employee.getCpf(), employee.getPhone(),
-                employee.getEmail(), employee.getBirthDate(), employee.getAddress(), employee.getHireDate(), employee.getTerminationDate());
+                employee.getEmail(), employee.getBirthDate(), employee.getAddress(), employee.getHireDate(),
+                employee.getTerminationDate(), employee.getRole().getName());
     }
 
 }

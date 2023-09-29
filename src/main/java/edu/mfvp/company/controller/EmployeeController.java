@@ -1,8 +1,6 @@
 package edu.mfvp.company.controller;
 
-import edu.mfvp.company.dtos.ClientDtoRecord;
 import edu.mfvp.company.dtos.EmployeeDtoRecord;
-import edu.mfvp.company.service.ClientService;
 import edu.mfvp.company.service.EmployeeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
