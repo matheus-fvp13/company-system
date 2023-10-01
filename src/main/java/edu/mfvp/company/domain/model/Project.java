@@ -33,11 +33,11 @@ public class Project extends Entity {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate endDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id_fk", nullable = false)
     private Client client;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "leader_id_fk", nullable = false)
     private Employee leader;
 
@@ -49,7 +49,7 @@ public class Project extends Entity {
     @NumberFormat(style = NumberFormat.Style.CURRENCY, pattern = "#,##0.00")
     private BigDecimal expenses;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "tb_project_employee",
             joinColumns = @JoinColumn(name = "project_id_fk"),
             inverseJoinColumns = @JoinColumn(name = "employee_id_fk")

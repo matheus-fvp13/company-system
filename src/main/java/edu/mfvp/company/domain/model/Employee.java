@@ -29,7 +29,7 @@ public class Employee extends Person {
     @ManyToMany(mappedBy = "team")
     private List<Project> projects;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id_fk", nullable = false)
     private Role role;
 
