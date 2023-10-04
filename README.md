@@ -1,8 +1,6 @@
 # Company System
 
-# About project
-
-# Class diagram
+## Class diagram
 ```mermaid
 classDiagram
     class Entity {
@@ -66,11 +64,11 @@ classDiagram
     Project "1..*"--"n" Employee
 ```
 
-# Tools used
+## Tools used
 
-# How to execute the project
+## How to execute the project
 
-# Author
+## Author
 Matheus Fernando Vieira Pinto.
 
 https://www.linkedin.com/in/matheus-fvp/
